@@ -1,0 +1,97 @@
+{% extends "layout/layout.html" %}
+{% load static %} 
+{% block title %} Payment Details {% endblock title %}
+
+{% block content %}
+ 
+
+  <main class="wrapper">
+    {% include "components/sidebar.html" with active="investments" %}
+
+
+    {% include "components/dashboard-sidebar.html" with active="investments" %}
+
+
+    <div class="dashboard-content">
+        {% include "components/dashboard-header.html" with active="investments" %}
+
+
+
+
+        <div class="space-top mb-5">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Breadcrumb Starts -->
+                            
+                            <nav aria-label="breadcrumb text-center">
+                                <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" >Home</a></li>
+                                <li class="breadcrumb-item"><a href="#" >New Investments</a></li>
+                                 
+                                <li class="breadcrumb-item active" aria-current="page">Payment</li>
+                                </ol>
+                            </nav>
+					<!-- Breadcrumb Ends -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-xl-12 col-md-12">
+ 
+                   <div class="widget">
+                       <div class="form">
+                           <h6 style="color: #ffffff;" class="mb-4">Payment Details</h6>
+                        <table class="table border-0">
+                             
+                            <tbody>
+                             
+                              <tr class="border-0"> 
+                                <th>Amount In USD</th>
+                                <td class="text-right">${{ pop.amount_in_usd }}</td>
+                              </tr>
+                              <tr class="border-0"> 
+                                <th>Amount In Coin</th>
+                                <td class="text-right">0.07</td>
+                              </tr>
+                              <tr class="border-0"> 
+                                <th>Coin</th>
+                                <td class="text-right">{{ pop.coin_tpye }}</td>
+                              </tr>
+                              <tr class="border-0"> 
+                                <th>Payment</th>
+                                <td class="text-right">Transfer</td>
+                              </tr>
+                              <tr class="border-0"> 
+                                <th>Status</th>
+                                {% if pop.is_approved == False %}
+                                <td class="text-right text-danger">Pending</td>
+                                {% else %}
+                                 <td class="text-right text-success">Approved</td>
+                                {% endif %}
+                              </tr>
+                             
+                               
+                            </tbody>
+                          </table>
+                          
+ 
+                       </div>
+                   </div>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        
+    </div>
+
+
+
+  </main>
+
+  
+
+{% endblock content %}

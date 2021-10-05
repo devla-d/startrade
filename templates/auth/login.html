@@ -1,0 +1,58 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Login  {% endblock title %}
+ 
+{% block content %}
+    <main class="wrapper">
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-content login pt-5">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row">
+ 
+                                <div class=" col-xl-12 justify-content-center ">
+                                    <!-- Logo Starts -->
+                                    <a class="visible-xs text-center" href="index.html" >
+                                        <img id="logo" style="width: 30%;" class="img-responsive mobile-logo" src="{% static 'images/svg/s.svg' %}" alt="logo">
+                                    </a>
+                                    <!-- Logo Ends -->
+                                    <div class="form-container mt-2">
+                                        <div>
+                                            <!-- Section Title Starts -->
+                                            <div class=" text-center">
+                                                <h2 class="title-head hidden-xs">Member <span class="primary-color">Login</span></h2>
+                                                 <p class="info-form">SEND, RECEIVE AND SECURELY STORE YOUR COINS IN YOUR WALLET!</p>
+                                            </div>
+                                            <!-- Section Title Ends -->
+                                            <!-- Form Starts -->
+                                            <form class="login-form" method="POST" action="/login/">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="destination" value="{{ destination }}">
+                                                {{ form|crispy }}
+                                             
+                                                <!-- Submit Form Button Starts -->
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary submit_btn" type="submit">Login</button>
+                                                    <p class="text-center">D'ont have an account ? <a href="/register">Register</a>
+                                                </p></div>
+                                                <!-- Submit Form Button Ends -->
+                                            </form>
+                                            <!-- Form Ends -->
+                                        </div>
+                                    </div>
+                                    <!-- Copyright Text Starts -->
+                                    <p class="text-center copyright-text">Copyright © 2021 Cryptotrustrade All Rights Reserved</p>
+                                    <!-- Copyright Text Ends -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+{% endblock content %}

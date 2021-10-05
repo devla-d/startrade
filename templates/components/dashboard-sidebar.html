@@ -1,0 +1,38 @@
+{% load static %}
+
+<div class="dashboard-sidebar">
+    <div class="sidebar-menu">
+        <ul class="show">
+            <li class="active">
+                <a href="/dashboard" data-toggle="tooltip" data-placement="right" title="Dashboard" class=" {% if active == 'dashboard' %} active {% endif %}  ">
+                    <span><i class="la la-igloo"></i></span>
+                </a>
+            </li>
+            <li><a href="/withdraw" data-toggle="tooltip" data-placement="right" title="Transaction History" class="{% if active == 'transactions' %} active {% endif %}">
+                    <span><i class="fa fa-download"></i></span>
+                </a>
+            </li>
+
+            <li><a href="/investments" data-toggle="tooltip" data-placement="right" title="Investments" class="{% if active == 'investments' %} active {% endif %}">
+                    <span><i class="la la-exchange"></i></span>
+                </a>
+            </li>
+
+             
+
+            <li><a href="/my-account" data-toggle="tooltip" data-placement="right" title="Account" class="{% if active == 'account' %} active {% endif %}">
+                    <span><i class="la la-user"></i></span>
+                </a>
+            </li>
+            <li><a href="/settings" data-toggle="tooltip" data-placement="right" title="Setting" class="{% if active == 'settings' %} active {% endif %}">
+                    <span><i class="la la-tools"></i></span>
+                </a>
+            </li>
+
+            <li><a href="/logout" data-toggle="tooltip" data-placement="right" title="logout">
+                    <span><i class="la la-sign-out"></i></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>  

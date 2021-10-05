@@ -1,0 +1,216 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+{% block title %} Investments {% endblock title %}
+
+{% block content %}
+
+
+<main class="wrapper">
+  {% include "components/sidebar.html" with active="investments" %}
+
+
+  {% include "components/dashboard-sidebar.html" with active="investments" %}
+
+
+  <div class="dashboard-content">
+    {% include "components/dashboard-header.html" with active="investments" %}
+
+
+
+
+    <div class="space-top mb-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Breadcrumb Starts -->
+
+            <nav aria-label="  text-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><i class="la la-exchange"></i> Investments</li>
+              </ol>
+            </nav>
+            <!-- Breadcrumb Ends -->
+          </div>
+        </div>
+
+         
+      </div>
+    </div>
+    <div class="investment-section">
+      <div class="container">
+        {% if investments.status == "completed" %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-success">
+              Your Investment Has Been Completed
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% if investments.pop.status == "declined" %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-danger">
+              Your Investment Has Been declined Because We Could Not Confirm Your Payment
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <div class="investment-card">
+          <div class="row  ">
+
+
+            <div class="col-xl-4 col-sm-6 mb-30 py-2">
+              <div class="d-widget d-flex flex-wrap">
+                <div class="col-8">
+                  <span class="caption">Amount Invested</span>
+                  <h6 class="currency-amount">${{ investments.amount_invested }}</h6>
+                </div>
+                <div class="col-4">
+                  <div class="icon ml-auto">
+                    <i class="fa fa-download"></i>
+                  </div>
+                </div>
+              </div><!-- d-widget-two end -->
+            </div>
+
+            <div class="col-xl-4 col-sm-6 mb-30 py-2">
+              <div class="d-widget d-flex flex-wrap">
+                <div class="col-8">
+                  <span class="caption">Amount Earned</span>
+                  <h6 class="currency-amount">${{ investments.amount_earn}}</h6>
+                </div>
+                <div class="col-4">
+                  <div class="icon ml-auto">
+                    <i class="fa fa-gift"></i>
+                  </div>
+                </div>
+              </div><!-- d-widget-two end -->
+            </div>
+
+
+
+
+            <div class="col-xl-4 col-sm-6 mb-30 py-2">
+              <div class="d-widget d-flex flex-wrap">
+                <div class="col-8">
+                  <span class="caption">Next Earning</span>
+                  {% if investments.status == "active" %}
+                  <h6 class="currency-amount"><span id="demo"></span></h6>
+                  {% else %}
+                  <h6 class="currency-amount">0 h 0 m 0 s</h6>
+                  {% endif %}
+
+                </div>
+                <div class="col-4">
+                  <div class="icon ml-auto">
+                    <i class="fas fa-user-plus ">
+
+                    </i>
+                  </div>
+                </div>
+              </div><!-- d-widget-two end -->
+            </div>
+
+            <div class="col-xl-4 col-sm-6 mb-30 py-2">
+              <div class="d-widget d-flex flex-wrap">
+                <div class="col-8">
+                  <span class="caption">Start Date</span>
+                  <h6 class="currency-amount">
+                    {{ investments.start_date|date:'M d, Y'  }}
+                  </h6>
+                </div>
+                <div class="col-4">
+                  <div class="icon ml-auto">
+                    <span class="tooltiptext" id="myTooltip"></span>
+                    <i class="fa fa-link copyicon "></i>
+                  </div>
+                </div>
+              </div><!-- d-widget-two end -->
+            </div>
+
+            <div class="col-xl-4 col-sm-6 mb-30 py-2">
+              <div class="d-widget d-flex flex-wrap">
+                <div class="col-8">
+                  <span class="caption">End Date</span>
+                  {% if investments.status == "active" %}
+                  <h6 id="end-date"  data-endDATE="{{ investments.end_date|date:'M d, Y H:m:s' }}" data-creditdate="{{ investments.crediting_date|date:'M d, Y H:m:s' }}" data-userID="{{ user.id }}" data-investID="{{ investments.id }}" class="currency-amount">
+                     {{ investments.end_date|date:'M d, Y' }}
+                  </h6>
+                  {% else %}
+                  <h6  class="currency-amount">
+                    {{ investments.end_date|date:'M d, Y' }} 
+                 </h6>
+                  {% endif %}
+                </div>
+                <div class="col-4">
+                  <div class="icon ml-auto">
+                    <span class="tooltiptext" id="myTooltip"></span>
+                    <i class="fa fa-link copyicon "></i>
+                  </div>
+                </div>
+              </div><!-- d-widget-two end -->
+            </div>
+
+            <div class="col-xl-4 col-sm-6 mb-30 py-2">
+              <div class="d-widget d-flex flex-wrap">
+                <div class="col-8">
+                  <span class="caption">Status</span>
+                  {% if investments.pop.status == "declined" %}
+                  <h6 class="currency-amount text-danger ">
+                    Declined
+                 </h6>
+                  {% elif investments.status == 'active' %}
+                  <h6 class="currency-amount text-info ">
+                      Active
+                  </h6>
+                  {% elif investments.status == "pending" %}
+                  <h6 class="currency-amount text-danger ">
+                    pending
+                 </h6>
+                 {% elif investments.status == "inactive" %}
+                 <h6 class="currency-amount text-danger ">
+                    inactive
+                 </h6>
+                 {% else %}
+                  <h6 class="currency-amount text-success ">
+                    Completed
+                </h6>
+                 {% endif %}
+                </div>
+                <div class="col-4">
+                  <div class="icon ml-auto">
+                    <span class="tooltiptext" id="myTooltip"></span>
+                    <i class="fa fa-link copyicon "></i>
+                  </div>
+                </div>
+              </div><!-- d-widget-two end -->
+            </div>
+
+
+
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-4">
+              {% if investments.status == "inactive" or investments.status == "completed" %}
+                <a href="/new-investments" class="btn btn-primary btn-block mt-4"><i class="fa fa-spinner fa-spin"></i> Invest <i class="la la-exchange"></i></a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+
+
+</main>
+
+
+
+{% endblock content %}

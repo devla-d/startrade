@@ -1,0 +1,87 @@
+{% extends "layout/layout.html" %}
+{% load static %} 
+{% block title %} Create New Investement {% endblock title %}
+
+{% block content %}
+ 
+
+  <main class="wrapper">
+    {% include "components/sidebar.html" with active="investments" %}
+
+
+    {% include "components/dashboard-sidebar.html" with active="investments" %}
+
+
+    <div class="dashboard-content">
+        {% include "components/dashboard-header.html" with active="investments" %}
+
+
+
+
+        <div class="space-top mb-5">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Breadcrumb Starts -->
+                            
+                            <nav aria-label="breadcrumb text-center"  style="border-bottom: 2px solid #222;">
+                                <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" >Home</a></li>
+                                <li class="breadcrumb-item"><a href="#" >New Investments</a></li> 
+                                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                                </ol>
+                            </nav>
+					<!-- Breadcrumb Ends -->
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 col-xl-12 col-md-12">
+ 
+                   <div class="widget">
+                    <h6 style="color: #ffffff;" class="mb-4">Transfer <strong class="primary-color">${{ user_investment.amount_invested }}</strong>  worth  coin To This Address : <span class="primary-color">XWITSNLAPSH83088908</span></h6>
+
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="investment_id" value="{{ investment.id }}">
+                            <div class="form-group mt-4">
+                             
+                                <select name="coin" id="coin" class="form-control" required>
+                                  
+                                    <option value="BTC">Btc</option>
+                                    <option value="ETH">ETH</option>
+                                    <option value="DOGE">DOGE</option>
+                                    <option value="XPR">XPR</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-4">
+                                <input type="text" class="form-control" value="Payment method(Defualt) : Transfer  " readonly>
+                            </div>
+                            <div class="form-group mt-4">
+                                <input type="text" name="transaction_id" class="form-control" placeholder="Input transaction id for proof of payment" required>
+                            </div>
+                            <div class="form-group">
+                                <h3 class="primary-color">NOTE : <small class="text-muted">Transfer the amount worth of coin to the provided address above, after that input it transaction id for confirmation, Your investments will be activated after your transaction have been confirm.</small></h3>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary submit_btn btn-block">Submit</button>
+                            </div>
+                        </form>
+                   </div>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        
+    </div>
+
+
+
+  </main>
+
+  
+
+{% endblock content %}

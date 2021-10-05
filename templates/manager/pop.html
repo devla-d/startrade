@@ -1,0 +1,95 @@
+{% extends "manager/layout.html" %}
+
+
+
+
+{% block content %}
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">POP</h1>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">POP</li>
+              </ol>
+            </div>
+  
+            <div class="row">
+              {% if pops %}
+                {% for obj in pops %}
+                <div class="col-xl-12 col-md-12 mb-4">
+                  <a href="{% url 'admin-dashboard-pop-detail' pk=obj.pk %}">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <div class="media">
+                            <div class="icon mt-3">
+                                <i class="fas fa-credit-card fa-2x text-primary mr-4"></i>
+                              </div>
+                              <div class="media-body">
+                                  <h5>By: {{ obj.user.username }} <span style="float: right;">{{ obj.date|date:'M d ' }}</span></h5>
+                                  Status : {% if obj.is_approved == False %} <span class="badge badge-danger">pending</span> {% else %} <span class="badge badge-success">approved</span>{% endif %}
+                              </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  </div>
+                {% endfor %}
+                {% else %}
+                <div class="col-xl-12 col-md-12 mt-5 mb-5">
+                  <div class="card h-100  ">
+                    <div class="card-body">
+                        No POP
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+                <!--div class="col-lg-12 mb-4">
+                  
+                  <div class="card">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                          <tr>
+                             
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for obj in pops %}
+                            <tr>
+                                <td><a href="#">{{ obj.user.username }}</a></td>
+                                <td>{{ obj.date }}</td> 
+                                {% if obj.is_approved == False %}
+                                    <td><span class="badge badge-danger">pending</span></td>
+                                {% else %}
+                                    <td><span class="badge badge-success">approved</span></td>
+                                {% endif %}
+                                <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                            </tr>
+  
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="card-footer"></div>
+                  </div>
+                </div-->
+              </div>
+              <!--Row-->
+   
+  
+           
+          </div>
+          <!---Container Fluid-->
+
+
+
+{% endblock %}

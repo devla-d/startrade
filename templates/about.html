@@ -1,0 +1,107 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+{% block title %}World best forex trading platform {% endblock title %}
+
+{% block content %}
+    <main class="wrapper">
+
+        {% include "components/sidebar.html" %}
+
+        {% include "components/header.html" %}
+
+        <section class="banner-area">
+			<div class="banner-overlay">
+				<div class="banner-text text-center">
+					<div class="container">
+						<!-- Section Title Starts -->
+						<div class="row  justify-content-center">
+							<div class=" justify-content-center text-center">
+								<!-- Title Starts -->
+								<h2 class="title-head">About <span class="primary-color">Us</span></h2>
+								<!-- Title Ends -->
+								<hr>
+								<!-- Breadcrumb Starts ->
+								
+                                <nav aria-label="breadcrumb text-center">
+                                    <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    </ol>
+                                </nav>
+								<-- Breadcrumb Ends -->
+							</div>
+						</div>
+						<!-- Section Title Ends -->
+					</div>
+				</div>
+			</div>
+		</section>
+
+             <!-- About Section Starts -->
+             <section class="about-us">
+                <div class="container"> 
+                    <!-- Section Content Starts -->
+                    <div class="row about-content">
+                        <!-- Image Starts -->
+                        <div class="col-sm-12 col-md-5 col-lg-6 text-center">
+                            <img id="about-us" class="img-responsive img-about-us"
+                                src="{% static '/images/about/about-us.png'%}" alt="about us">
+                        </div>
+                        <!-- Image Ends -->
+                        <!-- Content Starts -->
+                        <div class="col-sm-12 col-md-7 col-lg-6">
+                            <h3 class="title-about">We Are StarTrade</h3>
+                            <p class="about-text">
+                                The site is owned by <strong>Startrade cryto Ltd</strong>. a registered company for
+                                cryptocurrency investments solution. We
+                                give a chance to new, dynamilcally developing projects that bring huge profits in an amazing
+                                short time. Join Us by
+                                choosing one of our plans today.
+                            </p>
+                             
+                        </div>
+                        <!-- Content Ends -->
+                    </div>
+                    <!-- Section Content Ends -->
+                </div>
+            </section>
+            <!-- About Section Ends -->
+        
+ 
+
+
+
+
+
+        <!-- Call To Action Section Starts -->
+        <section class="call-action-all">
+            <div class="call-action-all-overlay">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xs-12">
+                            <!-- Call To Action Text Starts -->
+                            <div class="action-text text-center">
+                                <h2>Get Started Today With Bitcoin</h2>
+                                <p class="lead">Open account for free and start trading Bitcoins!</p>
+                            </div>
+                            <!-- Call To Action Text Ends -->
+                            <!-- Call To Action Button Starts -->
+                            <p class="action-btn "><a class="btn btn-primary" href="/register">Register Now</a></p>
+                            <!-- Call To Action Button Ends -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer Starts -->
+        {% include "components/footer.html" %}
+
+
+
+
+    </main>
+
+
+{% endblock content %}

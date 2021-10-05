@@ -1,0 +1,89 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+{% block title %} Transactions History {% endblock title %}
+
+{% block content %}
+<style>
+  .media-widget{
+    background-color: #1d1d1d;
+    border-radius: 10px;
+    padding: 10px;
+  }
+</style>
+<main class="wrapper">
+  {% include "components/sidebar.html" with active="transactions" %}
+
+
+  {% include "components/dashboard-sidebar.html" with active="transactions" %}
+
+
+  <div class="dashboard-content">
+    {% include "components/dashboard-header.html" with active="transactions" %}
+
+
+
+
+    <div class="space-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Breadcrumb Starts -->
+
+            <nav aria-label="breadcrumb text-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><i class="la la-history"></i> Transactions</li>
+              </ol>
+            </nav>
+            <!-- Breadcrumb Ends -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-xl-12 col-md-12">
+            {% if transactions %}
+            <div class="table-responsive-lg mt-2 mb-5 infinite-container">
+
+              {% for transac in transactions %}
+              <div class="media media-widget infinite-item mt-3">
+                  <div class="icon mt-2">
+                    <i class="fa fa-download fa-2x primary-color mr-4"></i>
+                  </div>
+                  <div class="media-body">
+                      <h5> Type : {{ transac.trans_type}} | <small>Amount : ${{ transac.amount_in_usd }}</small><span style="float: right;">{{ transac.date|date:'M d ' }}</span></h5>
+                      Status : {% if transac.is_approved == False %} <span class="badge badge-danger">pending</span> {% else %} <span class="badge badge-success">approved</span>{% endif %}
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+
+            {% if transactions.has_next %}
+            <a style="display: none;" class="button is-primary infinite-more-link"
+              href="?page={{ transactions.next_page_number }}">More</a>
+            {% endif %}
+            <div class="loading text-center notification is-primary mb-5" style="display: none;">
+              <i class="fa fa-spinner fa-spin fa-2x"></i>
+            </div>
+            {% else %}
+            <div class="justify-content-ceter pt-5 mt-5">
+              <div class="widget">
+                <h4 style="color: #ffffff;">No Recent <span class="primary-color">Transactions</span> </h4>
+              </div>
+
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+</main>
+
+
+
+{% endblock content %}

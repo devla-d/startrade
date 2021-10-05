@@ -1,0 +1,95 @@
+{% extends "layout/layout.html" %}
+{% load static %} 
+{% load crispy_forms_tags %}
+{% block title %} My Security Settings {% endblock title %}
+
+{% block content %}
+  
+
+  <main class="wrapper">
+    {% include "components/sidebar.html" with active="settings" %}
+
+
+    {% include "components/dashboard-sidebar.html" with active="settings" %}
+
+
+    <div class="dashboard-content">
+        {% include "components/dashboard-header.html" with active="settings" %}
+
+
+
+
+        <div class="space-top mb-5">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Breadcrumb Starts -->
+                            
+                            <nav aria-label="breadcrumb text-center " >
+                                <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" ><i class="fa fa-home"></i> Home</a></li> 
+                                <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-cog"></i> Settings</li>
+                                </ol>
+                            </nav>
+					<!-- Breadcrumb Ends -->
+                </div>
+            </div>
+
+            <div class="row">
+                
+                    <div class="col-lg-12">
+                        {% if messages %}
+                        {% for message in messages %}
+                            <div class="">          
+                                <h5 class="alert alert-{{ message.tags }}">{{ message}}</h5>
+                            </div>
+            
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+ 
+            </div>
+
+            <div class="row">
+              <div class="col-xl-4 col-lg-4">
+                
+                  <p><a href="/settings" class="btn btn-primary btn-block"><i class="fa fa-user"></i> Account settings  </a></p>
+                  <p><a href="/security-settings" class="btn btn-primary btn-block "><i class="fa fa-cog"></i> Security</a></p>
+                
+                  
+                  
+              </div>
+              <div class="col-xl-8 col-lg-8">
+                  <h2 style="color: #ffffff;">Change Password</h2>
+                <div class="  wow fadeInLeftBig"  >
+                    <form action="{% url 'security-settings' %}" method="POST">
+                         {% csrf_token  %}
+                         {{ form|crispy }}
+                            <div class="form-group">
+                                <button type="submit" name="submit" class="btn btn-primary btn-block submit_btn"><i
+                                        class="icon-check"></i> Submit</button>
+                            </div>
+
+                            
+                        
+                    </form>
+
+              </div>
+              </div>
+            </div>
+           
+             
+        </div>
+        </div>
+
+
+        
+    </div>
+
+
+
+  </main>
+
+  
+
+{% endblock content %}

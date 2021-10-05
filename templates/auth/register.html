@@ -1,0 +1,101 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Create An Account And Start Trading {% endblock title %}
+ 
+{% block content %}
+    <main class="wrapper">
+        <section class="auth-section register">
+            <div class="container">
+                <div class="auth-content register pt-5">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row">
+ 
+                                <div class=" col-xl-12 justify-content-center text-center">
+                                    <!-- Logo Starts -->
+                                    <a class="visible-xs" href="index.html" >
+                                        <img id="logo" style="width: 30%;" class="img-responsive mobile-logo" src="{% static 'images/svg/s.svg' %}" alt="logo">
+                                    </a>
+                                    <!-- Logo Ends -->
+                                    <div class="form-container">
+                                        <div>
+                                            <!-- Section Title Starts -->
+                                            <div class=" text-center">
+                                                <h2 class="title-head hidden-xs">get <span class="primary-color">started</span></h2>
+                                                 <p class="info-form">Open account for free and start trading Bitcoins now!</p>
+                                            </div>
+                                            <!-- Section Title Ends -->
+                                            <!-- Form Starts -->
+                                            <form class="register-form" method="POST" action="/register/">
+                                                 {% csrf_token %}
+
+                                                 {{ form|crispy }}
+                                                <!--div class="form-group {% if form.username.errors %}has-error{% endif %}" id="group_{{ form.username.name }}">
+                                                    
+                                                    <div class="input-group ">
+                                                        <div class="input-group-addon">
+                                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                                        </div>
+                                                        {{ form.username }}
+                                                       
+                                                    </div>
+                                                    <p class="text-danger">Erro</p>
+                                                </div>
+                                                 
+                                               
+                                                <div class="form-group {% if form.email.errors %}has-error{% endif %}" id="group_{{ form.email.name }}">
+                                                    
+                                                    <div class="input-group ">
+                                                        <div class="input-group-addon">
+                                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                                                        </div>
+                                                        {{ form.email }}
+                                                       
+                                                    </div>
+                                                    <p class="text-danger">Erro</p>
+                                                </div>
+                                                 
+                                                
+                                                <div class="form-group {% if form.password1.errors %}has-error{% endif %}" id="group_{{ form.password1.name }}">
+                                                    
+                                                    <div class="input-group ">
+                                                        <div class="input-group-addon">
+                                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                                                        </div>
+                                                        {{ form.password1 }}
+                                                        
+                                                        <div class="input-group-addon">
+                                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-eye-slash password-toggle"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-danger">Erro</p>
+                                                </div-->
+                                                 
+ 
+                                             
+                                                    
+                                                <!-- Submit Form Button Starts -->
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary submit_btn" type="submit">create account</button>
+                                                    <p class="text-center">already have an account ? <a href="/login">Login</a>
+                                                </p></div>
+                                                <!-- Submit Form Button Ends -->
+                                            </form>
+                                            <!-- Form Ends -->
+                                        </div>
+                                    </div>
+                                    <!-- Copyright Text Starts -->
+                                    <p class="text-center copyright-text">Copyright © 2021 Cryptotrustrade All Rights Reserved</p>
+                                    <!-- Copyright Text Ends -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+{% endblock content %}

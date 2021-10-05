@@ -1,0 +1,321 @@
+/* [ RESPONSIVE DESIGN STYLES ] */
+/*================================================== */
+
+/*** Only Wide Screens ***/
+
+@media(min-width:1600px) {
+  .img-block-left {
+    padding-left: 285px;
+  }
+  }
+  
+  /*** Large Devices, Wide Screens ***/
+  
+  @media (min-width : 1200px) {
+    
+  }
+  
+  /*** Devices Width 767px and Up ***/
+  
+  @media (min-width:767px) {
+     
+  }
+  
+  /*** Only Medium Devices, Desktops ***/
+  
+  @media (max-width:1200px) and (min-width:992px) {
+    .account-detail .media .media-body{
+      padding-top: 50px;
+   }
+  }
+  
+  /* Medium Devices, Desktops */
+  
+  @media (max-width:1200px) {
+    .img-block-left.ts-padding {
+      padding: 40px;
+    }
+    
+  .slider-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .slider-img {
+    top: -95px;
+  }
+
+  }
+  
+  /* Small Devices, Tablets */
+  
+  @media (max-width: 992px) {
+    header .navbar.dashboard{
+      width: 100%;
+    }
+    .user__avatar{
+      border-radius: 50%;
+      width:40%;
+    }
+    .account-detail .media .media-body{
+      padding-top: 50px;
+   }
+   
+  
+    .main-logo a img {
+        margin: 0 auto;
+      }
+
+      ul.user {
+        display: none;
+    }
+    #main-slide .carousel-item {
+      min-height: 450px;
+    }
+  
+    #main-slide .slider-content {
+      margin-top: -115px;
+    }
+  
+     
+  
+    .slider.btn {
+      padding: 10px 26px;
+      margin-top: 10px;
+    }
+  
+    #main-slide .carousel-indicators {
+      bottom: 20px;
+    }
+  
+    #main-slide .slider-content h3 {
+      font-size: 40px;
+      margin: 10px 0;
+      line-height: 50px;
+  }
+
+  .features-row {
+    padding-bottom: 10px;
+  }
+  .feature-box {
+    clear: both;
+    margin-bottom: 40px;
+  }
+
+  .img-about-us {
+    padding-bottom: 60px;
+  }
+
+  .bg-image-1 {
+    height: 225px;
+  }
+  .img-about-us {
+    width: 300px;
+  }
+  .img-block-left {
+    padding-left: 100px;
+  }
+  .title-head {
+   font-size: 30px;
+  }
+  .call-action-all .action-btn {
+    float: none;
+    text-align: center;
+  }
+
+  .action-text {
+    text-align: center;
+    float: none;
+  }
+
+  .action-text h2 {
+    font-size: 28px;
+  }
+
+  .action-text p {
+    font-size: 18px;
+  }
+
+  .call-action-all .action-btn .btn-primary {
+    font-size: 14px;
+    padding: 12px 25px;
+    min-height: 40px;
+    float: none;
+  }
+  .contact-form {
+    padding: 20px;
+  }
+
+  }
+  
+  /*** Only Small Devices ***/
+  
+  @media (max-width: 992px) and (min-width:768px) {
+
+    .main-logo {
+        float: none;
+        padding-bottom: 0;
+      }
+    .visible-xs{
+      display: block;
+    }
+    .dashboard-sidebar{
+      display: none;
+  }
+    .dashboard-content{
+      padding-left: 0px; transition: all 0.3s;
+  }    
+  .dashboard-sidebar-toggle{
+    display: block;
+  }
+  .account-detail .media .media-body{
+    padding-top: 50px;
+ }
+     
+  }
+  /* Small Devices Potrait */
+  
+  
+  @media (max-width : 767px) {
+    .dashboard-sidebar-toggle{
+      display: block;
+    }
+    
+    .dashboard-sidebar{
+      display: none;
+  }
+    .dashboard-content{
+      padding-left: 0px; transition: all 0.3s;
+  }    
+     
+    .visible-xs{
+      display: block;
+    }
+    section.auth-section{
+       
+        padding: 40px 0;
+        position: relative;
+   
+    }
+    .bitcoin-stats {
+        display: none;
+    }
+    .hidden-xs{
+        display: none;
+    }
+    ul.user {
+        text-align: center;
+        padding: 15px 0 22px;
+    }
+    .site-navigation{
+        display: none;
+    }
+    .mobile-menu  {
+        display: block;
+    }
+    .mobile-menu .container{
+        display:flex;
+        justify-content: space-between;
+        padding: 15px;
+      }
+
+      #main-slide .carousel-item {
+        min-height: 500px;
+      }
+    
+      #main-slide .slider-content {
+        margin-top: -165px;
+      }
+    
+      #main-slide .slider-content h3 {
+        font-size: 26px;
+        margin: 30px 0;
+        line-height: 36px;
+      }
+      .feature-title {
+        margin-top: 20px;
+      }
+      .feature-box .feature-icon {
+        float: none;
+        margin-bottom: 30px;
+      }
+    
+      .feature-box .feature-box-content {
+        margin-left: 0;
+        margin-bottom: 30px;
+      }
+    
+      .features.text-center .feature-box {
+        margin-bottom: 70px;
+      }
+    
+      .action-btn .btn-primary {
+        font-size: 20px;
+        min-height: 54px;
+        padding-right: 30px;
+      }
+    
+      .action-btn .btn-primary i {
+        height: 54px;
+        line-height: 54px;
+      }
+      .features-row {
+        padding: 45px 0 0 0;
+      }
+    
+      .feature-box {
+        text-align: center;
+      }
+    
+      .feature-box .feature-icon {
+        margin-bottom: 0;
+      }
+    
+      .feature-box .feature-box-content h3 {
+        margin: 15px 0 10px;
+      }
+        
+      .title-head-subtitle p {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    
+      .title-head-subtitle p:before,.title-head-subtitle p:after {
+        display: none;
+      }
+    
+      .img-block-left {
+        padding-left: 30px;
+      }
+      .account-detail .media .media-body{
+        padding-top: 10px;
+     }
+  }
+  
+  @media (max-width : 767px) and (min-width:571px) {
+    .bitcoin-stats {
+        display: none;
+    }
+    .hidden-xs{
+        display: none;
+    }
+  }
+  
+  @media (max-width : 570px) {
+    .bitcoin-stats {
+        display: none;
+    }
+    .hidden-xs{
+        display: none;
+    }
+  }
+  /* Extra Small Devices, Phones */
+  @media (max-width : 480px) {
+    .bitcoin-stats {
+        display: none;
+    }
+    .hidden-xs{
+        display: none;
+    }
+    
+  }

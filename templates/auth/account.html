@@ -1,0 +1,113 @@
+{% extends "layout/layout.html" %}
+{% load static %} 
+{% block title %} My Account {% endblock title %}
+
+{% block content %}
+  
+
+  <main class="wrapper">
+    {% include "components/sidebar.html" with active="account" %}
+
+
+    {% include "components/dashboard-sidebar.html" with active="account" %}
+
+
+    <div class="dashboard-content">
+        {% include "components/dashboard-header.html" with active="account" %}
+
+
+
+
+        <div class="space-top mb-5">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Breadcrumb Starts -->
+                            
+                            <nav aria-label="breadcrumb text-center ">
+                                <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" ><i class="fa fa-home"></i> Home</a></li> 
+                                <li class="breadcrumb-item active" aria-current="page"><i class="la la-user"></i> My Account</li>
+                                </ol>
+                            </nav>
+					<!-- Breadcrumb Ends -->
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xl-6">
+                    <div class="account-detail wow fadeInUp">
+                        <div class="media">
+                            <img class="mr-3 user__avatar mr-0 mr-sm-3" src="{% static '/images/avatar.png' %}"  alt="">
+                            <div class="media-body "> 
+                                <h4 class="mb-2" style="color: #ffffff;"> {{ user.username }} </h4>
+                                <p class="mb-1"> <span><i class="fa fa-phone mr-2 has-text-link"></i></span> {{ user.phone }}</p>
+                                <p class="mb-1"> <span><i class="fa fa-envelope mr-2 has-text-link"></i></span>
+                                    {{ user.email }}                                       </p>
+                            </div>
+                        </div>
+                        <ul class=" account-detail-body mt-2">
+                            <li>
+                                <h5 class="mr-4">Address</h5>
+                                <span class="text-muted">{{ user.address }}</span>
+                            </li>
+                            <li class="mb-1">
+                                <h5 class="mr-4">Postal code</h5>
+                                <span>{{ user.postalcode }}</span>
+                            </li>
+                            <li class="mb-1">
+                                <h5 class="mr-4">Country</h5>
+                                <span>{{ user.country }}</span>
+                            </li>
+                            <li class="mb-1">
+                                <h5 class="mr-4">Date Of Birth</h5>
+                                <span>{{ user.date_of_birth|date:'d M, Y' }}</span>
+                            </li>
+                        <ul>
+                            <a href="/settings" class="btn btn-primary btn-block mt-4"><i class="fa fa-cog"></i> Settings</a>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class=" wallet-card">
+                        <div class="wallet-card-header">
+                            <p class=" wow fadeInUp">Your balance</p>
+                            <div class="d-flex " style="justify-content: space-between;">
+                              <h4 class="user-balance  wow fadeInDown primary-color">${{ user.balance }}</h4> <i style="padding-top: 5px;" title="Withdraw" class="fa fa-download primary-color"></i>
+                            </div>
+                        </div>
+                        <div class="wallet-card-body">
+                            <ul class=" wow fadeInLeftBig">
+                                <li>
+                                    <i class="cc BTC"></i>  <p>Amount Invested</p> <p>${{ user.total_amount_invested }}</p> 
+                                </li>
+                                <li>
+                                  <i class="cc ETH"></i>  <p>Total Investment</p> <p>{{ user.total_investement_count }}</p> 
+                                </li>
+                                <li>
+                                  <i class="cc DOGE "></i>  <p>Total Earnings</p> <p>${{ user_investment.amount_earn }}</p> 
+                                </li>
+                                <li>
+                                  <i class="cc XRP "></i>  <p>Total Withdraw</p> <p>${{ user.withdraw_total }}</p> 
+                                </li>
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+             
+        </div>
+        </div>
+
+
+        
+    </div>
+
+
+
+  </main>
+
+  
+
+{% endblock content %}
